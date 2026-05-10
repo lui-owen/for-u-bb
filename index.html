@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>For You ♡</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:#f5f1ea;
+      font-family:'Inter', sans-serif;
+      color:#4a403a;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:40px 20px;
+      overflow-x:hidden;
+    }
+
+    .container{
+      width:100%;
+      display:flex;
+      justify-content:center;
+    }
+
+    .paper{
+      background:white;
+      max-width:700px;
+      width:100%;
+      padding:60px 35px;
+      border-radius:10px;
+      box-shadow:0 10px 40px rgba(0,0,0,0.08);
+      text-align:center;
+      animation:fadeIn 1.5s ease;
+    }
+
+    .small-text{
+      letter-spacing:3px;
+      font-size:0.8rem;
+      opacity:0.6;
+      margin-bottom:10px;
+    }
+
+    h1{
+      font-family:'Cormorant Garamond', serif;
+      font-size:4rem;
+      font-weight:600;
+      margin-bottom:35px;
+      color:#5a4637;
+    }
+
+    .photo{
+      width:240px;
+      margin:auto;
+      margin-bottom:40px;
+      padding:10px;
+      background:#fff;
+      box-shadow:0 5px 20px rgba(0,0,0,0.12);
+      transform:rotate(-2deg);
+      transition:0.4s;
+    }
+
+    .photo:hover{
+      transform:rotate(0deg) scale(1.02);
+    }
+
+    .photo img{
+      width:100%;
+      display:block;
+    }
+
+    .message{
+      line-height:2;
+      font-size:1.05rem;
+      min-height:170px;
+      white-space:pre-line;
+    }
+
+    button{
+      margin-top:40px;
+      border:none;
+      background:#5f4b3e;
+      color:white;
+      padding:14px 30px;
+      border-radius:50px;
+      cursor:pointer;
+      transition:0.3s;
+      font-size:0.95rem;
+      font-family:'Inter', sans-serif;
+    }
+
+    button:hover{
+      transform:translateY(-2px);
+      background:#4c3b31;
+    }
+
+    .hidden-message{
+      display:none;
+      margin-top:40px;
+      line-height:2;
+      animation:fadeUp 1s ease;
+      color:#5c5149;
+      white-space:pre-line;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(15px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+      }
+      to{
+        opacity:1;
+      }
+    }
+
+    @media(max-width:768px){
+
+      h1{
+        font-size:2.8rem;
+      }
+
+      .paper{
+        padding:40px 25px;
+      }
+
+      .photo{
+        width:200px;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- MUSIC -->
+  <audio autoplay loop>
+    <source src="lnoe.mp3" type="audio/mp3">
+  </audio>
+
+  <div class="container">
+
+    <div class="paper">
+
+      <p class="small-text">a little message for you ♡</p>
+
+      <h1>thank you for staying.</h1>
+
+      <div class="photo">
+        <img src="foto.jpg" alt="">
+      </div>
+
+      <div class="message">
+        <p id="typing"></p>
+      </div>
+
+      <button onclick="showMessage()">
+        open letter
+      </button>
+
+      <div class="hidden-message" id="hiddenMessage">
+
+i know i'm not always easy to understand.
+sometimes i overthink too much,
+sometimes i become distant,
+and sometimes i don't know how to explain what i feel.
+
+but somehow...
+you still stay.
+
+and honestly?
+
+that's one of the most beautiful things
+i've ever received in my life.
+
+thank you for accepting me
+exactly as i am. ♡
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    const text =
+`meeting you felt unexpected.
+
+but somehow,
+you slowly became
+one of my favorite parts of life.
+
+thank you for listening to me,
+understanding me,
+and loving me
+even when i'm being difficult.
+
+i may not always say it properly,
+but i appreciate you more than you know. ♡`;
+
+    let i = 0;
+
+    function typingEffect(){
+
+      if(i < text.length){
+
+        document.getElementById("typing").innerHTML += text.charAt(i);
+
+        i++;
+
+        setTimeout(typingEffect, 40);
+
+      }
+
+    }
+
+    typingEffect();
+
+    function showMessage(){
+
+      document.getElementById("hiddenMessage").style.display = "block";
+
+    }
+
+  </script>
+
+</body>
+</html>
